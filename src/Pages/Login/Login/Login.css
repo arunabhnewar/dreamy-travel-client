@@ -1,0 +1,7 @@
+.sign-in-card {
+    background-color: #f97251 ;
+    background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -moz-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -o-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -webkit-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+}

@@ -1,0 +1,19 @@
+.about-section{
+    background-image: linear-gradient(rgba(80, 79, 79, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/about.jpg);
+    width: 100%;
+    height:90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 !important;
+}
+.about-dreamy-travels{
+    background-color: #f97251 ;
+    background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -moz-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -o-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+    -webkit-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
+}
+.team-section{
+    background-color: #e1e1e1;
+    width: 100%;
+}
