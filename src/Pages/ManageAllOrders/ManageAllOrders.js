@@ -18,7 +18,7 @@ const ManageAllOrders = () => {
     const deleteHandle = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `https://nameless-crag-15556.herokuapp.com/${id}`;
+            const url = `https://nameless-crag-15556.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
