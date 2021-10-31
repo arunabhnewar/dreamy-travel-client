@@ -56,10 +56,6 @@ const MyOrders = () => {
 
 
                             {Array.from({ length: 1 }).map((_, index) => (
-                                <th className="text-white" key={index}>Image</th>
-                            ))}
-
-                            {Array.from({ length: 1 }).map((_, index) => (
                                 <th className="text-white" key={index}>Charge</th>
                             ))}
 
@@ -86,10 +82,6 @@ const MyOrders = () => {
 
                                 {Array.from({ length: 1 }).map((_, index) => (
                                     <td className="text-white" key={index}>{myOrder?._id} </td>
-                                ))}
-
-                                {Array.from({ length: 1 }).map((_, index) => (
-                                    <td className="text-white" key={index}>{myOrder?.img} </td>
                                 ))}
 
                                 {Array.from({ length: 1 }).map((_, index) => (

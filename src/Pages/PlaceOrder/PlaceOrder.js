@@ -60,23 +60,23 @@ const PlaceOrder = () => {
                         <h1 className="pb-3 text-white fw-bold">Edit User Details</h1>
                         <form className="order-form " onSubmit={handleSubmit(onSubmit)}>
 
-                            <input className='me-2 mb-3 border-0 rounded-3' defaultValue={user?.displayName} {...register("Name")} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' defaultValue={user?.displayName} {...register("Name")} />
 
-                            <input className='me-2 mb-3 border-0 rounded-3' defaultValue={user?.email} {...register("email", { required: true })} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' defaultValue={user?.email} {...register("email", { required: true })} />
 
                             {errors?.email && <span className="error">This field is required</span>}
                             <br />
 
-                            <input className='me-2 mb-3 border-0 rounded-3' placeholder="Address" defaultValue="" {...register("address")} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' placeholder="Address" defaultValue="" {...register("address")} />
 
-                            <input className='me-2 mb-3 border-0 rounded-3' placeholder="City" defaultValue="" {...register("city")} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' placeholder="City" defaultValue="" {...register("city")} />
                             <br />
-                            <input className='me-2 mb-3 border-0 rounded-3' placeholder="phone number" defaultValue="" {...register("phone")} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' placeholder="phone number" defaultValue="" {...register("phone")} />
 
-                            <input className='me-2 mb-3 border-0 rounded-3' defaultValue={orders?._id} {...register("vacation")} />
+                            <input className='p-2 me-2 mb-3 border-0 rounded-3' defaultValue={orders?._id} {...register("vacation")} />
                             <br />
 
-                            <input className="bg-primary border-0 w-50 text-white mb-5 rounded-3" type="submit" value="Booking" />
+                            <input className="bg-primary border-0 w-50 text-white mb-5 rounded-3 p-2" type="submit" value="Booking" />
 
                         </form>
                     </div>
