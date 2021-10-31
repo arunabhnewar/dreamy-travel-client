@@ -12,13 +12,12 @@ const MyOrders = () => {
     const { email } = user;
 
     useEffect(() => {
-
         fetch(`https://nameless-crag-15556.herokuapp.com/orders/${email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [email])
 
-    const handleDelete = (id) => {
+    const handleDelete = id => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
             const url = `https://nameless-crag-15556.herokuapp.com/orders/${id}`;
@@ -37,36 +36,38 @@ const MyOrders = () => {
     }
 
     return (
-        <div className="container">
-            <h1>Update Your Vacations Orders</h1>
+        <div className="container-fluid my-order-section">
+            <h1 className="text-white pt-5 fw-bold">Update Your Vacations Orders</h1>
 
-            <h6>My total orders list: {myOrders?.length}</h6>
-            <div className="container">
+            <h6 className="text-white pt-3">My total orders list: {myOrders?.length}</h6>
+            <div className="container mt-5">
                 <Table striped bordered hover responsive>
                     <thead>
                         <tr>
-                            {/* <th>Place</th> */}
+
                             {Array.from({ length: 1 }).map((_, index) => (
-                                <th key={index}>Place</th>
+                                <th className="text-white" key={index}>Place</th>
                             ))}
 
-                            {/* <th>Order Id</th> */}
 
                             {Array.from({ length: 1 }).map((_, index) => (
-                                <th key={index}>Order Id</th>
+                                <th className="text-white" key={index}>Order Id</th>
                             ))}
 
-                            {/* <th>Charge</th> */}
+
 
 
                             {Array.from({ length: 1 }).map((_, index) => (
-                                <th key={index}>Charge</th>
+                                <th className="text-white" key={index}>Charge</th>
                             ))}
 
-                            {/* <th>Cancel</th> */}
 
                             {Array.from({ length: 1 }).map((_, index) => (
-                                <th key={index}>Cancel</th>
+                                <th className="text-white" key={index}>Status</th>
+                            ))}
+
+                            {Array.from({ length: 1 }).map((_, index) => (
+                                <th className="text-white" key={index}>Cancel</th>
                             ))}
 
 
@@ -76,26 +77,31 @@ const MyOrders = () => {
 
                         <tbody key={myOrder._id}>
                             <tr>
-                                {/* <td>{myOrder?.name}</td> */}
-                                {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?.name} </td>
-                                ))}
-
-                                {/* <td>{myOrder?._id}</td> */}
 
                                 {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?._id} </td>
+                                    <td className="text-white" key={index}>{myOrder?.name} </td>
                                 ))}
-
-                                {/* <td>{myOrder?.charge}</td> */}
 
                                 {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?.charge} </td>
+                                    <td className="text-white" key={index}>{myOrder?._id} </td>
                                 ))}
 
-                                <button onClick={() => handleDelete(myOrder._id)} className="mt-3 text-danger">
-                                    <FontAwesomeIcon icon={faTrashAlt} />
-                                </button>
+                                {Array.from({ length: 1 }).map((_, index) => (
+                                    <td className="text-white" key={index}>{myOrder?.charge} </td>
+                                ))}
+
+                                {Array.from({ length: 1 }).map((_, index) => (
+                                    <td className="text-white" key={index}>{myOrder?.status} </td>
+                                ))}
+
+                                {Array.from({ length: 1 }).map((_, index) => (
+                                    <td className="text-white" key={index}>
+                                        <button onClick={() => handleDelete(myOrder._id)} className="border-0 text-danger">
+                                            <FontAwesomeIcon icon={faTrashAlt} />
+                                        </button>
+                                    </td>
+                                ))}
+
                             </tr>
 
                         </tbody>

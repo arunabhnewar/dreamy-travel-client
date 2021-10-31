@@ -1,74 +1,119 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { useForm } from "react-hook-form";
+import './AddVacations.css';
 
 const AddVacations = () => {
     const { allContext } = useAuth();
     const { user } = allContext;
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
 
     const onSubmit = (data) => {
         data.email = user?.email;
         fetch("https://nameless-crag-15556.herokuapp.com/vacations", {
             method: "POST",
-            headers: { "content-type": "application/json" },
+            headers: {
+                "content-type": "application/json"
+            },
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => console.log(result));
+            .then((result) => {
+                if (result.insertedId) {
+                    alert('New Vacation successfully added')
+                    reset();
+                }
+            });
         console.log(data);
     };
 
     return (
-        <div>
+        <div className="container-fluid pt-5 add-vacations-section">
 
 
-            <h1 className="mt-5 text-center text-info">Please Add New Vacation</h1>
-            <div className="login-box w-25 m-auto mt-5">
-                <div className="event-box border border d-flex justify-content-center align-items-center">
-                    <div className="login-form">
+            <h1 className="mt-3 text-center text-white fw-bold">Add New Vacation</h1>
+            <div className=" w-50 mx-auto mt-5">
+                <div className="d-flex justify-content-center align-items-center pb-5">
+                    <div className="">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
-                                {...register("title")}
-                                placeholder="title"
-                                className="p-2 m-2 w-100"
+                                {...register("name")}
+                                placeholder="Name"
+                                className="p-2 m-2 w-50"
                             />
-                            <br />
+
+
                             <input
-                                {...register("date")}
-                                // placeholder="Name"
-                                type="date"
-                                className="p-2 m-2 w-100"
+                                {...register("time")}
+                                placeholder="Days"
+                                className="p-2 m-2 w-50"
                             />
-                            <br />
+
+
+                            <input
+                                {...register("region")}
+                                placeholder="Region"
+                                className="p-2 m-2 w-50"
+                            />
+
+
+                            <input
+                                {...register("minAge", { min: 0, max: 99 })}
+                                type="number"
+                                placeholder="Min Age"
+                                className="p-2 m-2 w-50"
+                            />
+
+
+                            <input
+                                {...register("maxPeople", { min: 0, max: 100 })}
+                                type="number"
+                                placeholder="Max People"
+                                className="p-2 m-2 w-50"
+                            />
+
+
+                            <input
+                                {...register("charge")}
+                                placeholder="Charge"
+                                className="p-2 m-2 w-50"
+                            />
+
+
+                            <input
+                                {...register("rating")}
+                                placeholder="Rating"
+                                className="p-2 m-2 w-50"
+                            />
+
+
+                            <input
+                                {...register("ratingCount")}
+                                placeholder="Rating Given"
+                                className="p-2 m-2 w-50"
+                            />
+
+
                             <input
                                 {...register("description")}
                                 placeholder="Description"
-                                // className="p-2 m-2"
-                                className="p-2 m-2 w-100"
+
+                                className="p-2 m-2 w-50"
                             />
-                            <br />
+
 
                             <input
-                                {...register("image", { required: true })}
+                                {...register("img", { required: true })}
                                 placeholder="Image Link"
-                                // className="p-2 m-2"
-                                className="p-2 m-2 w-100"
+
+                                className="p-2 m-2 w-50"
                             />
-                            <br />
-                            <select {...register("EventColor")} className="p-2 m-2 w-100">
-                                <option value="red">red</option>
-                                <option value="green">green</option>
-                                <option value="blue">blue</option>
-                                <option value="orange">orange</option>
-                                <option value="black">black</option>
-                            </select>
                             <br />
 
                             {errors.exampleRequired && <span>This field is required</span>}
 
-                            <input type="submit" value="Add" className="btn btn-info w-50" />
+                            <input type="submit" value="Add" className="btn btn-primary w-50" />
                         </form>
                     </div>
                 </div>
