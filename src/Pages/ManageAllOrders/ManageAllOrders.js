@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ManageAllOrders = () => {
-    const [loading, setLoading] = useState(true);
+    const [orderConfirm, setOrderConfirm] = useState(true);
     const [manageOrders, setManageOrders] = useState([]);
 
 
@@ -13,7 +13,7 @@ const ManageAllOrders = () => {
         fetch('https://nameless-crag-15556.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setManageOrders(data));
-    }, [loading])
+    }, [orderConfirm])
 
     const deleteHandle = id => {
         const proceed = window.confirm('Are you sure want to delete');
@@ -43,11 +43,12 @@ const ManageAllOrders = () => {
                 .then(data => {
                     if (data.modifiedCount === 1) {
                         alert('Order Confirm Successfully');
-                        setLoading(!confirm);
+                        setOrderConfirm(!confirm);
                     }
                 })
         }
     }
+
     return (
         <div className="container-fluid my-order-section">
             <h1 className="text-white pt-5 fw-bold">Dashboard Overview</h1>

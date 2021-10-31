@@ -41,65 +41,65 @@ const AddVacations = () => {
                                 {...register("name")}
                                 placeholder="Name"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("time")}
                                 placeholder="Days"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("region")}
                                 placeholder="Region"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("minAge", { min: 0, max: 99 })}
                                 type="number"
                                 placeholder="Min Age"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("maxPeople", { min: 0, max: 100 })}
                                 type="number"
                                 placeholder="Max People"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("charge")}
                                 placeholder="Charge"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("rating")}
                                 placeholder="Rating"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("ratingCount")}
                                 placeholder="Rating Given"
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("description")}
                                 placeholder="Description"
 
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
 
                             <input
                                 {...register("img", { required: true })}
                                 placeholder="Image Link"
 
                                 className="p-2 m-2 w-100 border border-white rounded-2"
-                            />
+                                required />
                             <br />
 
                             {errors.exampleRequired && <span>This field is required</span>}
