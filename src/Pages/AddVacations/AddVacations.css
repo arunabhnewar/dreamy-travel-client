@@ -1,8 +1,5 @@
 .add-vacations-section {
-    background-color: #f97251 ;
-    background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
-    -moz-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
-    -o-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
-    -webkit-background: linear-gradient(rgba(249, 114, 81, 1), rgba(255, 152, 108, 1));
-    object-fit: contain;
+    background-image: linear-gradient(rgba(80, 79, 79, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/add-vacation.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

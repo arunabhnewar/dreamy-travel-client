@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ManageAllOrders = () => {
+    const [loading, setLoading] = useState(true);
     const [manageOrders, setManageOrders] = useState([]);
+
 
     useEffect(() => {
         fetch('https://nameless-crag-15556.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setManageOrders(data));
-    }, [])
+    }, [loading])
 
     const deleteHandle = id => {
         const proceed = window.confirm('Are you sure want to delete');
@@ -31,6 +33,21 @@ const ManageAllOrders = () => {
         }
     }
 
+    const confirmHandle = id => {
+        const confirm = window.confirm('Are you sure to confirm order?')
+        if (confirm) {
+            fetch(`https://nameless-crag-15556.herokuapp.com/orders/${id}`, {
+                method: 'PUT',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount === 1) {
+                        alert('Order Confirm Successfully');
+                        setLoading(!confirm);
+                    }
+                })
+        }
+    }
     return (
         <div className="container-fluid my-order-section">
             <h1 className="text-white pt-5 fw-bold">Dashboard Overview</h1>
@@ -108,20 +125,17 @@ const ManageAllOrders = () => {
 
                                 {Array.from({ length: 1 }).map((_, index) => (
                                     <td className="text-white" key={index}>
-                                        <button className="border-0 text-success">
+                                        <button className="border-0 text-success" onClick={() => confirmHandle(manageOrder._id)}>
                                             <FontAwesomeIcon icon={faCheck} />
                                         </button>
                                     </td>
                                 ))}
 
-
                             </tr>
-
                         </tbody>
                     ))}
 
                 </Table>
-
 
             </div>
         </div>

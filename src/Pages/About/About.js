@@ -11,8 +11,10 @@ import icon10 from '../../images/experience/icon-10.png';
 import icon11 from '../../images/experience/icon-11.png';
 import icon12 from '../../images/experience/icon-12.png';
 
+
 const About = () => {
     return (
+
         <div>
             <div className="container-fluid about-section">
                 <div className="row d-flex justify-content-center align-items-center about">
