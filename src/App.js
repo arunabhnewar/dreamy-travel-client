@@ -4,11 +4,11 @@ import './App.css';
 import AuthProvider from './Context/AuthProvider';
 import About from './Pages/About/About';
 import AddVacations from './Pages/AddVacations/AddVacations';
-import Admin from './Pages/Admin/Admin';
 import Contact from './Pages/Contact/Contact';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import ManageAllOrders from './Pages/ManageAllOrders/ManageAllOrders';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import NotFound from './Pages/NotFound/NotFound';
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder';
@@ -34,20 +34,20 @@ function App() {
             <Route exact path="/contact">
               <Contact />
             </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
             <Route exact path="/myOrders">
               <MyOrders />
             </Route>
             <PrivateRoute exact path="/placeorder/:id">
               <PlaceOrder />
             </PrivateRoute>
-            <Route exact path="/login">
-              <Login />
-            </Route>
             <Route exact path="/addVacations">
               <AddVacations />
             </Route>
-            <Route exact path="admin">
-              <Admin />
+            <Route exact path="/manageAllOrders">
+              <ManageAllOrders />
             </Route>
             <Route exact path="*">
               <NotFound />

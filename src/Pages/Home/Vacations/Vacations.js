@@ -5,7 +5,7 @@ import './Vacations.css';
 const Vacations = () => {
     const [vacations, setVacations] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/vacations')
+        fetch('https://nameless-crag-15556.herokuapp.com/vacations')
             .then(res => res.json())
             .then(data => setVacations(data));
     }, [])

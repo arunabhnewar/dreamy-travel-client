@@ -2,22 +2,26 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table'
+import useAuth from '../../Hooks/useAuth';
 import './MyOrders.css';
 
 const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
-
+    const { allContext } = useAuth();
+    const { user } = allContext;
+    const { email } = user;
 
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+
+        fetch(`https://nameless-crag-15556.herokuapp.com/orders/${email}`)
             .then(res => res.json())
             .then(data => setMyOrders(data))
-    }, [])
+    }, [email])
 
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://nameless-crag-15556.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })
@@ -74,19 +78,19 @@ const MyOrders = () => {
                             <tr>
                                 {/* <td>{myOrder?.name}</td> */}
                                 {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?.name} {index}</td>
+                                    <td key={index}>{myOrder?.name} </td>
                                 ))}
 
                                 {/* <td>{myOrder?._id}</td> */}
 
                                 {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?._id} {index}</td>
+                                    <td key={index}>{myOrder?._id} </td>
                                 ))}
 
                                 {/* <td>{myOrder?.charge}</td> */}
 
                                 {Array.from({ length: 1 }).map((_, index) => (
-                                    <td key={index}>{myOrder?.charge} {index}</td>
+                                    <td key={index}>{myOrder?.charge} </td>
                                 ))}
 
                                 <button onClick={() => handleDelete(myOrder._id)} className="mt-3 text-danger">

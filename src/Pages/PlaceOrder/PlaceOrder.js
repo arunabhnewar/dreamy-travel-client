@@ -18,7 +18,7 @@ const PlaceOrder = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/vacations')
+        fetch('https://nameless-crag-15556.herokuapp.com/vacations')
             .then(res => res.json())
             .then(data => {
                 const orders = data?.find(order => order?._id === id)
@@ -30,7 +30,9 @@ const PlaceOrder = () => {
 
 
     const onSubmit = data => {
-        fetch('http://localhost:5000/orders', {
+        data.status = "pending"
+        delete data._id;
+        fetch('https://nameless-crag-15556.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -51,7 +53,6 @@ const PlaceOrder = () => {
             <h1 className="fw-bold text-white pt-5">Place Your Order Here</h1>
 
             <div className="container-fluid py-5 ">
-
                 <div className="row mx-auto">
 
                     <div className="col-md-5 col-sm-12 align-self-center">
@@ -75,11 +76,10 @@ const PlaceOrder = () => {
                             <input className='me-2 mb-3 border-0 rounded-3' defaultValue={orders?._id} {...register("vacation")} />
                             <br />
 
-                            <input className="bg-primary border-0 w-50 text-white mb-5 rounded-3" type="submit" />
+                            <input className="bg-primary border-0 w-50 text-white mb-5 rounded-3" type="submit" value="Booking" />
 
                         </form>
                     </div>
-
 
 
                     <div className="col-md-7 col-sm-12">
